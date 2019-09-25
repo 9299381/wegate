@@ -11,7 +11,7 @@ import (
 func main() {
 
 	args.Registy = "127.0.0.1:8500"
-	args.Server = "gateway"
+	args.Server = "gateway,event"
 	args.Name = "gateway"
 
 	wego.Provider(&providers.EnvProvider{})
@@ -20,6 +20,8 @@ func main() {
 	wego.Provider(&providers.ConsulRegistyProvider{})
 	wego.Provider(&providers.LogProvider{})
 	wego.Provider(&providers.MysqlProvider{})
+
+	wego.Provider(&providers.EventProvider{})
 
 	wego.Router("gateway", &router.GateWayRouter{})
 	wego.Start()

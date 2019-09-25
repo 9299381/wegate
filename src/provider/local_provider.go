@@ -21,12 +21,12 @@ func (it *LocalProvider) Register() {
 
 	wego.Handler("local", handler)
 
+	//无本地service,只跑本地filter
 	endpoint := filters.Chain(
 		&filters.ResponseEndpoint{},
 		&filters.LimitEndpoint{},
 		&filters.GateWayEndpoint{},
 	)
-
 	wego.Handler("limit_remote", endpoint)
 
 }
