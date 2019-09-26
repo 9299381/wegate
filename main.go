@@ -19,7 +19,6 @@ func main() {
 	//服务注册到配置中心
 	wego.Provider(&providers.ConsulRegistyProvider{})
 	wego.Provider(&providers.LogProvider{})
-	wego.Provider(&providers.MysqlProvider{})
 
 	wego.Provider(&providers.EventProvider{})
 

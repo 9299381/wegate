@@ -16,10 +16,13 @@ func (it *LocalProvider) Boot() {
 
 func (it *LocalProvider) Register() {
 
-	ss := services.Chain(&service.LocalService{})
-	handler := filters.New(ss)
+	wego.Handler(
+		"local",
+		filters.New(services.Chain(&service.LocalService{})))
 
-	wego.Handler("local", handler)
+	wego.Handler(
+		"GATEWAY_EVENT_HANDLER",
+		filters.New(services.Chain(&service.GatewayEventService{})))
 
 	//无本地service,只跑本地filter
 	endpoint := filters.Chain(
