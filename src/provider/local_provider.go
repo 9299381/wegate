@@ -28,6 +28,7 @@ func (it *LocalProvider) Register() {
 	endpoint := filters.Chain(
 		&filters.ResponseEndpoint{},
 		&filters.LimitEndpoint{},
+		&filters.JwtEndpoint{},
 		&filters.GateWayEndpoint{},
 	)
 	wego.Handler("limit_remote", endpoint)
