@@ -14,13 +14,12 @@ func main() {
 	args.Server = "gateway,event"
 	args.Name = "gateway"
 
-	wego.Provider(&providers.EnvProvider{})
-	wego.Provider(&provider.LocalProvider{})
+	//环境配置
 	//服务注册到配置中心
 	wego.Provider(&providers.ConsulRegistyProvider{})
-	wego.Provider(&providers.LogProvider{})
 
-	wego.Provider(&providers.EventProvider{})
+	//本地服务注册
+	wego.Provider(&provider.LocalProvider{})
 
 	wego.Router("gateway", &router.GateWayRouter{})
 	wego.Start()

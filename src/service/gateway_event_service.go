@@ -1,6 +1,8 @@
 package service
 
-import "github.com/9299381/wego/contracts"
+import (
+	"github.com/9299381/wego/contracts"
+)
 
 type GatewayEventService struct {
 	next contracts.IService
