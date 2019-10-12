@@ -1,10 +1,9 @@
 package provider
 
 import (
-	"github.com/9299381/wegate/src/service"
+	"github.com/9299381/wegate/src/controller"
 	"github.com/9299381/wego"
 	"github.com/9299381/wego/filters"
-	"github.com/9299381/wego/services"
 )
 
 type LocalProvider struct {
@@ -18,11 +17,11 @@ func (it *LocalProvider) Register() {
 
 	wego.Handler(
 		"local",
-		filters.New(services.Chain(&service.LocalService{})))
+		filters.New(&controller.LocalController{}))
 
 	wego.Handler(
 		"GATEWAY_EVENT_HANDLER",
-		filters.New(services.Chain(&service.GatewayEventService{})))
+		filters.New(&controller.GatewayEventController{}))
 
 	//无本地service,只跑本地filter
 	endpoint := filters.Chain(
