@@ -12,6 +12,6 @@ func (it *GatewayEventController) Handle(ctx contracts.Context) (interface{}, er
 
 }
 
-func (it *GatewayEventController) Valid(ctx contracts.Context) error {
+func (it *GatewayEventController) GetRules() interface{} {
 	return nil
 }

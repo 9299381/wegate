@@ -21,6 +21,6 @@ func (it *LocalController) Handle(ctx contracts.Context) (interface{}, error) {
 
 }
 
-func (it *LocalController) Valid(ctx contracts.Context) error {
+func (it *LocalController) GetRules() interface{} {
 	return nil
 }
