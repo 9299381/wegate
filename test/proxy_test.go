@@ -9,10 +9,11 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"testing"
 	"time"
 )
 
-func main() {
+func TestProxy(t *testing.T) {
 	host := "127.0.0.1:8341"
 	service := "demo.post"
 	params := map[string]interface{}{}
