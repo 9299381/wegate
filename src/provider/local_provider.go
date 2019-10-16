@@ -9,11 +9,11 @@ import (
 type LocalProvider struct {
 }
 
-func (it *LocalProvider) Boot() {
+func (s *LocalProvider) Boot() {
 
 }
 
-func (it *LocalProvider) Register() {
+func (s *LocalProvider) Register() {
 
 	wego.Handler(
 		"local",

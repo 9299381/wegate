@@ -6,9 +6,10 @@ import (
 )
 
 type LocalController struct {
+	*contracts.Controller
 }
 
-func (it *LocalController) Handle(ctx contracts.Context) (interface{}, error) {
+func (s *LocalController) Handle(ctx contracts.Context) (interface{}, error) {
 	params := make(map[string]interface{})
 	params["test_rpc_post"] = "test_rpc_post"
 	resp := clients.
@@ -19,8 +20,4 @@ func (it *LocalController) Handle(ctx contracts.Context) (interface{}, error) {
 
 	return resp, nil
 
-}
-
-func (it *LocalController) GetRules() interface{} {
-	return nil
 }

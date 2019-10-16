@@ -9,15 +9,15 @@ type GateWayRouter struct {
 	*servers.GateWayCommServer
 }
 
-func (it *GateWayRouter) Boot() {
-	it.GateWayCommServer = servers.NewGateWayCommServer()
+func (s *GateWayRouter) Boot() {
+	s.GateWayCommServer = servers.NewGateWayCommServer()
 }
-func (it *GateWayRouter) Register() {
+func (s *GateWayRouter) Register() {
 
-	it.Route("GET", "/local", wego.Handler("local"))
+	s.Route("GET", "/local", wego.Handler("local"))
 
 	//consul_demo 微服务上提供的 /demo/two 受限控制
-	it.Route(
+	s.Route(
 		"GET",
 		"/consul_demo/demo/two",
 		wego.Handler("limit_remote"),
