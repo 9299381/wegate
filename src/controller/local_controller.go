@@ -6,7 +6,6 @@ import (
 )
 
 type LocalController struct {
-	*contracts.Controller
 }
 
 func (s *LocalController) Handle(ctx contracts.Context) (interface{}, error) {

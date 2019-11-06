@@ -3,7 +3,6 @@ package controller
 import "github.com/9299381/wego/contracts"
 
 type GatewayEventController struct {
-	*contracts.Controller
 }
 
 func (s *GatewayEventController) Handle(ctx contracts.Context) (interface{}, error) {
